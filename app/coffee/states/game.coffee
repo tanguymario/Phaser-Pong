@@ -19,7 +19,6 @@ class Game extends Phaser.State
     debug 'Create...', @, 'info', 30, debugThemes.Phaser
 
 
-
   toggleFullscreen: ->
     if @game.scale.isFullScreen
       @game.scale.stopFullScreen()
