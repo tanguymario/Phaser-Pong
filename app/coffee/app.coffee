@@ -4,7 +4,10 @@ app.coffee
 
 ###
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 Phaser   = require 'Phaser'
 
 # States
