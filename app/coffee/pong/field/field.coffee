@@ -60,9 +60,8 @@ class Field
 
     # Position
     viewMiddlePoint = @view.getMiddlePoint()
-    ballSprite.x = viewMiddlePoint.x
-    ballSprite.y = viewMiddlePoint.y
     @pong.ball.initialPoint = viewMiddlePoint
+    @pong.ball.reset()
 
     # Scale
     widthScale = @config.ball.size / ballSprite.width

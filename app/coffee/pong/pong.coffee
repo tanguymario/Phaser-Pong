@@ -31,12 +31,16 @@ class Pong
     @field = new Field @game, @, fieldConfig, gameView
 
 
+  collision: ->
+    console.log "Collision"
+
 
   update: ->
+    @ball.update()
+
     for player in @players
       player.update()
-
-    @ball.update()
+      @game.physics.arcade.collide @ball.sprite, player.sprite, @collision, null, @
 
 
 module.exports = Pong
