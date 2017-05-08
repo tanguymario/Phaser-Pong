@@ -36,6 +36,12 @@ class Rectangle extends Polygon
     return @points[2]
 
 
+  getMiddlePoint: ->
+    middleX = @getTopLeft().x + @width / 2
+    middleY = @getTopLeft().y + @height / 2
+    return new Coordinates middleX, middleY
+
+
   isInside: (coords, checkBorder) ->
     assert coords instanceof Coordinates, "Coordinates type : " + coords
 

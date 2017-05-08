@@ -1,5 +1,5 @@
 module.exports =
   skins:
-    classic:
-      key: 'ball-skin-classic'
-      src: 'assets/img/pong/ball/classic.png'
+    basketball:
+      key: 'ball-skin-basketball'
+      src: 'assets/img/pong/ball/basketball.png'

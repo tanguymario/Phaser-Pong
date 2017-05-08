@@ -18,8 +18,12 @@ class PlayerHuman extends Player
       up: @game.input.keyboard.addKey @humanConfig.keys.up, @
       down: @game.input.keyboard.addKey @humanConfig.keys.down, @
 
-    @keys.up.onDown.add @moveUp, @
-    @keys.down.onDown.add @moveDown, @
+
+  update: ->
+    if @keys.up.isDown
+      @moveUp()
+    else if @keys.down.isDown
+      @moveDown()
 
 
 module.exports = PlayerHuman

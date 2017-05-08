@@ -5,6 +5,7 @@ Pong = require '../pong/pong.coffee'
 FieldConfig = require '../pong/field/field-config.coffee'
 
 Ball = require '../pong/ball/ball.coffee'
+BallConfig = require '../pong/ball/ball-config.coffee'
 
 PlayerConfig = require '../pong/player/player-config.coffee'
 PlayerHuman = require '../pong/player/player-human.coffee'
@@ -21,26 +22,33 @@ class Game extends Phaser.State
     debug 'Constructor...', @, 'info', 30, debugThemes.Phaser
     super
 
+    @ballSkin = BallConfig.skins.basketball
+
     @fieldConfig = FieldConfig.classic
 
-    @skin1 = PlayerConfig.skins.classic
-    @skin2 = PlayerConfig.skins.classic
+    @p1skin = PlayerConfig.skins.classic
+    @p2skin = PlayerConfig.skins.classic
 
 
   preload: ->
     debug 'Preload...', @, 'info', 30, debugThemes.Phaser
-    @game.load.image @skin1.key, @skin1.src
-    @game.load.image @skin1.key, @skin1.src
+    @game.load.image @p1skin.key, @p1skin.src
+    @game.load.image @p2skin.key, @p2skin.src
+    @game.load.image @ballSkin.key, @ballSkin.src
 
   create: ->
     debug 'Create...', @, 'info', 30, debugThemes.Phaser
 
-    player1 = new PlayerHuman @game, @skin1, PlayerHumanConfig.player1
-    player2 = new PlayerHuman @game, @skin2, PlayerHumanConfig.player2
+    player1 = new PlayerHuman @game, @p1skin, PlayerHumanConfig.player1
+    player2 = new PlayerHuman @game, @p2skin, PlayerHumanConfig.player2
 
-    ball = new Ball @game
+    ball = new Ball @game, @ballSkin
 
     @pong = new Pong @game, @fieldConfig, ball, player1, player2
+
+
+  update: ->
+    @pong.update()
 
 
   toggleFullscreen: ->

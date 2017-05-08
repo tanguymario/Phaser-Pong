@@ -24,9 +24,19 @@ class Pong
     @ball = ball
     @players = players
 
+    @game.physics.startSystem Phaser.Physics.ARCADE
+
     # For now, field takes all canvas dimensions
     gameView = new Rectangle new Coordinates(0, 0), @game.width, @game.height
     @field = new Field @game, @, fieldConfig, gameView
+
+
+
+  update: ->
+    for player in @players
+      player.update()
+
+    @ball.update()
 
 
 module.exports = Pong

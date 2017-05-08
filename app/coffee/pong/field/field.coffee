@@ -23,6 +23,7 @@ class Field
     @view = view
 
     @initalizePlayers()
+    @initializeBall()
 
 
   initalizePlayers: ->
@@ -48,6 +49,29 @@ class Field
     p2Scale.x = @config.players.width / p2.sprite.width
     p2Scale.y = @config.players.height / p2.sprite.height
     p2.sprite.scale.setTo p2Scale.x, p2Scale.y
+
+    # Set sprites visible
+    p1.sprite.visible = true
+    p2.sprite.visible = true
+
+
+  initializeBall: ->
+    ballSprite = @pong.ball.sprite
+
+    # Position
+    viewMiddlePoint = @view.getMiddlePoint()
+    ballSprite.x = viewMiddlePoint.x
+    ballSprite.y = viewMiddlePoint.y
+    @pong.ball.initialPoint = viewMiddlePoint
+
+    # Scale
+    widthScale = @config.ball.size / ballSprite.width
+    heightScale = @config.ball.size / ballSprite.height
+    mediumScale = (widthScale + heightScale) / 2
+    ballSprite.scale.setTo mediumScale, mediumScale
+
+    # Visible
+    ballSprite.visible = true
 
 
 module.exports = Field
