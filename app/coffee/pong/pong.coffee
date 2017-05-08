@@ -1,27 +1,32 @@
-<<<<<<< Updated upstream
-=======
 assert = require '../utils/assert.coffee'
 
->>>>>>> Stashed changes
 debug       = require '../utils/debug.coffee'
 debugThemes = require '../utils/debug-themes.coffee'
 
+Coordinates = require '../utils/coordinates.coffee'
+
+Field = require './field/field.coffee'
+
+Rectangle = require '../utils/geometry/rectangle.coffee'
+
 class Pong
-<<<<<<< Updated upstream
-  constructor: ->
-=======
 
+  # Classic pong game with only two players
   @NB_MIN_PLAYERS = 2
-  @NB_MAX_PLAYERS = Infinity
+  @NB_MAX_PLAYERS = 2
 
-  constructor: (game, players...) ->
+  constructor: (game, fieldConfig, ball, players...) ->
     assert game?, "Game missing"
     assert players.length >= Pong.NB_MIN_PLAYERS, "Not enough players"
     assert players.length <= Pong.NB_MAX_PLAYERS, "Too Much players"
 
     @game = game
+    @ball = ball
     @players = players
->>>>>>> Stashed changes
+
+    # For now, field takes all canvas dimensions
+    gameView = new Rectangle new Coordinates(0, 0), @game.width, @game.height
+    @field = new Field @game, @, fieldConfig, gameView
 
 
 module.exports = Pong

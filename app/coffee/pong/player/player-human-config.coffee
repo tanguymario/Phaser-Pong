@@ -3,9 +3,9 @@ Phaser = require 'Phaser'
 module.exports =
   player1:
     keys:
-      moveUp: Phaser.Keyboard.UP
-      moveDown: Phaser.Keyboard.DOWN
+      up: Phaser.Keyboard.UP
+      down: Phaser.Keyboard.DOWN
   player2:
     keys:
-      moveUp: Phaser.Keyboard.UP
-      moveDown: Phaser.Keyboard.DOWN
+      up: Phaser.Keyboard.UP
+      down: Phaser.Keyboard.DOWN

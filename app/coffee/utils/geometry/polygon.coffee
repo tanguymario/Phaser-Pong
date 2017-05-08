@@ -7,17 +7,10 @@ assert = require '../assert.coffee'
 class Polygon
 
   constructor: (coordinates...) ->
-<<<<<<< Updated upstream
-    for i in [0..coordinates.length - 1] by 1
-      assert coordinates[i] instanceof Coordinates, "object specified is not of type \'Coordinates\'"
-
-    @points = coordinates
-=======
     @points = new Array coordinates.length
     for i in [0...coordinates.length] by 1
       assert coordinates[i] instanceof Coordinates, "object specified is not of type \'Coordinates\'"
       @points[i] = coordinates[i].clone()
->>>>>>> Stashed changes
 
 
   getPoint: (i) ->
