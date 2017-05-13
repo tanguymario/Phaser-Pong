@@ -3,11 +3,11 @@ class Angle
     @value = angle
 
 
-  degreesToRadians: ->
+  deg2Rad: ->
     return @value * (Math.PI / 180)
 
 
-  radiansToDegrees: ->
+  rad2Deg: ->
     return @value * (180 / Math.PI)
 
 

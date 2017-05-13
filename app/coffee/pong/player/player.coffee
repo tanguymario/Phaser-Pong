@@ -6,7 +6,8 @@ debug       = require '../../utils/debug.coffee'
 debugThemes = require '../../utils/debug-themes.coffee'
 
 class Player
-  @V_DEF_SPEED = 5
+  @V_SPEED = 50
+  @V_DECELERATE_COEFF = 0.85
 
   constructor: (game, skin) ->
     assert game?, "Game missing"
@@ -19,10 +20,11 @@ class Player
 
     @game.physics.arcade.enable @sprite
     @sprite.body.collideWorldBounds = true
+    @sprite.body.immovable = true
 
 
-  update: ->
-    # Nothing to do
+  update: =>
+    @sprite.body.velocity.y *= Player.V_DECELERATE_COEFF
 
 
   moveUp: ->
@@ -34,7 +36,7 @@ class Player
 
 
   move: (value) ->
-    @sprite.y += value * Player.V_DEF_SPEED
+    @sprite.body.velocity.y += value * Player.V_SPEED
 
 
 module.exports = Player

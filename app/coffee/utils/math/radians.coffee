@@ -8,6 +8,10 @@ class Radians extends Angle
   @MIN_RADIANS = 0
   @MAX_RADIANS = Math.PI * 2
 
+  @GetRandomRadians: ->
+    return new Radians Radians.GetRandomAngle()
+
+
   @GetRandomAngle: ->
     return random.between Radians.MIN_RADIANS, Radians.MAX_RADIANS
 
@@ -20,7 +24,7 @@ class Radians extends Angle
 
 
   toDegrees: ->
-    return @radiansToDegrees()
+    return @rad2Deg()
 
 
 module.exports = Radians

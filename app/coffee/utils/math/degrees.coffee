@@ -8,6 +8,10 @@ class Degrees extends Angle
   @MIN_DEGREES = 0
   @MAX_DEGREES = 360
 
+  @GetRandomDegrees: ->
+    return new Degrees Degrees.GetRandomAngle()
+
+
   @GetRandomAngle: ->
     return random.between Degrees.MIN_DEGREES, Degrees.MAX_DEGREES
 
@@ -23,6 +27,6 @@ class Degrees extends Angle
 
 
   toRadians: ->
-    return @degreesToRadians()
+    return @deg2Rad()
 
 module.exports = Degrees

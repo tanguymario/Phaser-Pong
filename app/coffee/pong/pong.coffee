@@ -26,13 +26,13 @@ class Pong
 
     @game.physics.startSystem Phaser.Physics.ARCADE
 
+    # Left and right game borders are disabled
+    @game.physics.arcade.checkCollision.left = false
+    @game.physics.arcade.checkCollision.right = false
+
     # For now, field takes all canvas dimensions
     gameView = new Rectangle new Coordinates(0, 0), @game.width, @game.height
     @field = new Field @game, @, fieldConfig, gameView
-
-
-  collision: ->
-    console.log "Collision"
 
 
   update: ->
@@ -40,7 +40,7 @@ class Pong
 
     for player in @players
       player.update()
-      @game.physics.arcade.collide @ball.sprite, player.sprite, @collision, null, @
+      @game.physics.arcade.collide @ball.sprite, player.sprite, @ball.collideWithPaddle, null, @
 
 
 module.exports = Pong

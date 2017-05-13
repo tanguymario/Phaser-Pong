@@ -20,6 +20,8 @@ class PlayerHuman extends Player
 
 
   update: ->
+    super
+    
     if @keys.up.isDown
       @moveUp()
     else if @keys.down.isDown
